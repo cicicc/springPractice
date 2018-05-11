@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--F:\Documents\download\spring-framework-4.2.4.RELEASE\docs\spring-framework-reference\html\xsd-configuration-->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://www.springframework.org/schema/context/spring-context.xsd ">
+    <!--配置注解开发-->
+    
+    <!--测试注入-->
+    <bean name="userDao" class="com.afeng.dao.impl.UserDaoImpl">
+    </bean>
+    <!--最常用的属性注入-->
+    <bean name="car" class="com.afeng.test.pojo.Car">
+        <property name="color" value="yellow"/>
+        <property name="name" value="兰博基尼"/>
+    </bean>
+    <!--不太常用的构造注入-->
+    <bean name="newCar" class="com.afeng.test.pojo.Car">
+        <constructor-arg name="color" value="紫色"/>
+        <constructor-arg name="name" value="保时捷911"/>
+    </bean>
+    <!--注入customerDao-->
+    <bean name="customerDao" class="com.afeng.dao.impl.CustomerDaoImpl"></bean>
+    <!--注入customerService-->
+    <bean name="customerService" class="com.afeng.service.impl.CustomerServiceImpl">
+        <property name="customerDao" ref="customerDao"/>
+    </bean>
+    <!--注入customerAction-->
+    <!--<bean name="customerAction" class="com.afeng.web.action.CustomerAction">-->
+    <!--<property name="customerService" ref="customerService"/>-->
+    <!--</bean>-->
+    <!--暂时不注入action-->
+
+
+</beans>

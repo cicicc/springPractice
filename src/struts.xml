@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts >
+    <!--打开开发者模式和将扩展名设置为并非一定要写action-->
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.action.extension" value="action,,"/>
+    <package name="customer" extends="struts-default" namespace="/">
+        <action name="customer_*" class="com.afeng.web.action.CustomerAction" method="{1}">
+            <result name="addPage">jsp/customer/add.jsp</result>
+            <result name="toList" type="redirect">customer_findAll.action</result>
+            <result name="success">/jsp/customer/list.jsp</result>
+        </action>
+    </package>
+</struts>

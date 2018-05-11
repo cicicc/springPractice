@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--配置四项基本属性-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql:///springpractice</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">chenfeng980320</property>
+        <!--配置数据库方言-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--指定数据库中表的操作方式-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--显示hibernate生成的SQL语句并将其标准化-->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <!--设置hibernate绑定当前的线程-->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!--引入映射文件-->
+        <mapping resource="com/afeng/domain/customer.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
